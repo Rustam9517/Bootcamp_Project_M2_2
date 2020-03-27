@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Проект М2_2</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="calc">
+        <article class="startSumBlock">
+            <label for="startSum">Начальная сумма вклада</label>
+            <input type="number" id="startSum" placeholder="Enter Summ">
+        </article>
+        <article class="monthlyAddBlock">
+            <label for="monthlyAdd">Сумма ежемесячного пополнения</label>
+            <input type="number" id="monthlyAdd">
+        </article>
+        <article class="daysBlock">
+            <label for="days">Срок вклада</label>
+            <input type="number" id="days">
+        </article>
+        <article class="currencyBlock">
+            <label for="currency">Валюта Вклада</label>
+            <select id="currencyUser">
+                <option value="RUB">RUB</option>
+                <option value="USD">USD</option>
+            </select>
+        </article>
+    </section>
+    <button>Подобрать</button>
+    <p class="error"></p>
+    <table class="tableCell">
+
+    </table>
+    <script src="banks.js"></script>
+    <script src="script.js"></script>
+    <script>
+        new Application();
+    </script>
+</body>
+</html>
