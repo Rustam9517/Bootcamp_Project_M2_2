@@ -32,19 +32,27 @@ class Application{
         canDepositCheck.sort((a, b) => a.result - b.result);
         if(canDepositCheck.length===0) alert("Нет Такого БАНКА!!!");
         else {
-            maxResult = canDepositCheck.reduce(function(prev, current) {
-                return (prev.result >= current.result) ? prev : current
-            });
-            finalResult.push(maxResult);
-            console.log(finalResult);
-            for (let i=0;i<finalResult.length;i++){
-                table.innerHTML = '';
+            if(canDepositCheck[canDepositCheck.length-1].result===canDepositCheck[canDepositCheck.length-2].result){
+                table.innerHTML ='';
+                finalResult.push(canDepositCheck[canDepositCheck.length-2],canDepositCheck[canDepositCheck.length-1]);
                 table.innerHTML += `<tr>
                     <th>Название Банка</th>
                     <th>Вклад</th>
                     <th>Процент</th>
                     <th>Итоговая сумма</th>
                 </tr>`;
+            }else {
+                table.innerHTML ='';
+                finalResult.push(canDepositCheck[canDepositCheck.length-1]);
+                table.innerHTML += `<tr>
+                    <th>Название Банка</th>
+                    <th>Вклад</th>
+                    <th>Процент</th>
+                    <th>Итоговая сумма</th>
+                </tr>`;
+            }
+            console.log(finalResult);
+            for (let i=0;i<finalResult.length;i++){
                 table.innerHTML += getCreate(finalResult[i].bankName,finalResult[i].investName,finalResult[i].incomeType,finalResult[i].result);
             }
         }
